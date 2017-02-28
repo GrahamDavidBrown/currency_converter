@@ -14,8 +14,6 @@ class Currency_converter:
         if new_currency_code not in rates:
             raise UnkownCurrencyCodeError("Unknown monetary unit")
         else:
-            print(self.currency.amount)
-            print(self.rates[new_currency_code])
             self.currency.amount = self.currency.amount * self.rates[new_currency_code]
             self.currency.country_code = self.new_currency_code
             return self.currency
