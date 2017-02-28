@@ -9,7 +9,7 @@ class CurrencyCodeError(TypeError):
 class Currency:
     def __init__(self, country_code, amount=0):
         if len(country_code) == 1:
-            self.amount = amount
+            self.amount = float(amount)
             self.country_code = country_code
         else:
             try:
@@ -28,13 +28,16 @@ class Currency:
                 print("your input obviously makes no sense.")
 
 
+    def __repr__(self):
+        return str(self.country_code) + self.amount
+
     def __eq__(self, other):
         if (self.country_code == other.country_code) and (self.amount == other.amount):
             return True
         else:
             return False
 
-    def subtract(self, other):
+    def __sub__(self, other):
         if self.contry_code == other.contry_code:
             return_val = self
             (return_val.amount) -= (other.amount)
@@ -42,7 +45,7 @@ class Currency:
         else:
             raise DifferentCurrencyCodeError("Cannot perform addition on different currencies.")
 
-    def add(self, other):
+    def __add__(self, other):
         if self.country_code == other.country_code:
             return_val = self
             (return_val.amount) += (other.amount)
