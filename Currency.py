@@ -29,7 +29,7 @@ class Currency:
 
 
     def __repr__(self):
-        return str(self.country_code) + self.amount
+        return str(self.country_code) + str(self.amount)
 
     def __eq__(self, other):
         if (self.country_code == other.country_code) and (self.amount == other.amount):
@@ -53,7 +53,7 @@ class Currency:
         else:
             raise DifferentCurrencyCodeError("Cannot perform subtraction on different currencies.")
 
-    def multiply(self, other):
+    def __mul__(self, other):
         if type(other) == int or type(other) == float:
             return_val = self
             return_val.amount = self.amount * other
