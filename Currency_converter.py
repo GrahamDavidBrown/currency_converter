@@ -9,11 +9,9 @@ class Currency_converter:
         self.currency = currency
         self.new_currency_code = new_currency_code
         self.rates = rates
-
-    def convert(self):
         if new_currency_code not in rates:
             raise UnkownCurrencyCodeError("Unknown monetary unit")
-        else:
-            self.currency.amount = self.currency.amount * self.rates[new_currency_code]
-            self.currency.country_code = self.new_currency_code
-            return self.currency
+    def convert(self):
+        self.currency.amount = self.currency.amount * self.rates[self.new_currency_code]
+        self.currency.country_code = self.new_currency_code
+        return self.currency
