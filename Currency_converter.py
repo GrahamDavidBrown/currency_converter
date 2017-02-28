@@ -19,9 +19,3 @@ class Currency_converter:
             self.currency.amount = self.currency.amount * self.rates[new_currency_code]
             self.currency.country_code = self.new_currency_code
             return self.currency
-
-c = Currency("$5")
-new_currency_code = "¥"
-converter = Currency_converter(c, new_currency_code, rates)
-c = converter.convert()
-print(c.country_code + str(c.amount))
