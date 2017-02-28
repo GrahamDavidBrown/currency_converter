@@ -56,8 +56,3 @@ class Currency:
             return (self)
         else:
             raise CurrencyCodeError("Cannot perform multiplication on currency and currency.")
-
-
-c = Currency("5$")
-d = Currency("5&")
-print(c.multiply(d))
