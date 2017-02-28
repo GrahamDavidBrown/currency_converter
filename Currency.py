@@ -25,7 +25,7 @@ class Currency:
         self.amount = float(country_code)
         if self.country_code == "":
             self.country_code = input("Please enter a currency symbol: ")
-        if self.amount == 0:
+        if self.amount <= 0:
             self.amount = int(input("Please enter a positive nonzero number: "))
         print(self.amount)
         print(self.country_code)
