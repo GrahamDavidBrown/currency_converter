@@ -36,21 +36,24 @@ class Currency:
 
     def subtract(self, other):
         if self.contry_code == other.contry_code:
-            (self.amount) -= (other.amount)
-            return (self)
+            return_val = self
+            (return_val.amount) -= (other.amount)
+            return return_val
         else:
             raise DifferentCurrencyCodeError("Cannot perform addition on different currencies.")
 
     def add(self, other):
         if self.country_code == other.country_code:
-            (self.amount) += (other.amount)
-            return (self)
+            return_val = self
+            (return_val.amount) += (other.amount)
+            return return_val
         else:
             raise DifferentCurrencyCodeError("Cannot perform subtraction on different currencies.")
 
     def multiply(self, other):
         if type(other) == int or type(other) == float:
-            self.amount = self.amount * other
-            return (self)
+            return_val = self
+            return_val.amount = self.amount * other
+            return return_val
         else:
             raise CurrencyCodeError("Cannot perform multiplication on currency and currency.")
